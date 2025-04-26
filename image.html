@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+text-align: center;
+font-family: Arial, Helvetica, sans-serif;
+margin-top:50px
+        }
+
+        img{
+            width:300px;
+            height:500px;
+            border-radius:10px;
+            margin: 20px;
+        }
+
+        button{
+            padding: 10px 15px;
+            font-size: 16px;
+            margin:5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>image changer</h2>
+    <img id="image" alt="image">
+    <br>
+    <button onclick="previmage()">previous</button>
+    <button onclick="nextimage()">next</button>
+    <script>
+        const images =[
+        "https://pbs.twimg.com/profile_images/1771486346835881984/0SkNzFZO_400x400.jpg",
+        "https://pbs.twimg.com/profile_images/1398878546831937538/HY5cgso2_400x400.jpg",
+        "https://img.mensxp.com/media/content/2023/Aug/Image-3_Puneet-Superstar_Instagram_64d0e92f26850.jpeg?w=780&h=780&cc=1"
+    ];
+     
+     let currentIndex =0;
+     window.onload = function(){
+        document.getElementById("image").src = images[currentIndex]
+
+     };   
+        
+        function nextimage(){
+            currentIndex =(currentIndex + 1) % images.length;
+            document.getElementById("image").src =images[currentIndex];
+
+        }
+
+        function previmage(){
+            currentIndex =(currentIndex - 1+ images.length) % images.length;
+            document.getElementById("image").src =images[currentIndex];
+        }
+
+
+
+    </script>
+</body>
+</html>
